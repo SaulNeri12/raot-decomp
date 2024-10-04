@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: anim_char_select_menu_ts_override
+  m_Controller: {fileID: 9100000, guid: 13118801d24dad441820a2b5f16fa859, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: cde886b66b8c33648a9b49b0c63180f3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3d446141b078e7a4d8620e6ae6b03f81, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e2ba213da5bc30f49bc4a1716e27e8b3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d334fbcd11f4de94b8f45eb9234b65bc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 48f1fd828c06c004d8acf24e375c9586, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e17fd4dc1b97f11469e6ca63dca4b87d, type: 2}

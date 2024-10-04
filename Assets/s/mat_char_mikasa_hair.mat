@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mat_char_mikasa_hair
+  m_Shader: {fileID: 4800000, guid: a414139ca0267214a8a93f5f78a3dd2a, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_RAMPTEXT TCP2_ZSMOOTH_ON _ENABLELIGHTFALLOFF_ON _FRESNELONLIGHT_ON _FRESNELONSHADOWDARK_ON _FRESNELONSHADOW_ON _FRESNELVISIBLEONDARKAMBIENTLIGHT_ON _HARDEDGEFRESNEL_ON _MAINTEXTURECOLORGLOSS_ON _NORMALMAP _REFLECTIONBLENDTOMAINTEXTURE_ON _SHADOWMASKGLOSSTEXTURE_ON _SHOWAOONAMBIENTLIGHT_ON _SHOWAOONLIGHT_ON _SHOWSHADOWTONLIGHT_ON _SOFTGLOSS_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+      _FReflection:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _GlossTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _MaskGloss:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _MaskReflection:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _MaskSelfLit:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadowColorTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadowPTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _ShadowTTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+      _Texture:
+        m_Texture: {fileID: 2800000, guid: 8e089d78d686dc64bbc61bda37ddcb05, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+      _AdjustLightDirectionalLight: 1
+      _AdjustLightPointSpotlight: 1
+      _BumpScale: 1
+      _Compa: 8
+      _Cutoff: 0.5
+      _DefaultReflectionRoughtness: 0
+      _DetailNormalMapScale: 1
+      _DirectionalLightAffectShadow: 0
+      _DoubleSided: 2
+      _DstBlend: 0
+      _DstBlendOutline: 0
+      _DynamicNoiseOutline: 0
+      _EnableLightFalloff: 1
+      _FresnelFill: -1
+      _FresnelIntensity: 0.02
+      _FresnelOnLight: 1
+      _FresnelOnShadowDark: 1
+      _GIFlatShade: 0
+      _GIShadeSize: 0
+      _GlossIntensity: -3.54
+      _GlossMapScale: 1
+      _GlossTextureFollowLight: 0
+      _GlossTextureFollowObjectRotation: 0
+      _GlossTextureIntensity: 0
+      _GlossTextureRotate: 0
+      _Glossiness: 0
+      _GlossyReflections: 1
+      _HardEdgeFresnel: 1
+      _LightFalloffAffectShadowT: 0
+      _MainTextureColorGloss: 1
+      _Metallic: 0
+      _Mode: 0
+      _NormalIntensity: 1
+      _OcclusionStrength: 1
+      _Offset1: 50
+      _Offset2: 0
+      _Oper: 8
+      _Outline: 0.3
+      _OutlineMode: 0
+      _OutlineNoiseIntensity: 0
+      _OutlineWidth: 0.001
+      _Parallax: 0.02
+      _RampSmooth: 0.15
+      _RampThreshold: 0.65
+      _RefVal: 0
+      _ReflectionBlendToMainTexture: 1
+      _ReflectionIntensity: 0
+      _Saturation: 1
+      _SaturationPointSpotlight: 1.09
+      _SelfLitHighContrast: 0
+      _SelfLitIntensity: 0.5
+      _SelfLitPower: 1
+      _SelfShadowHardness: 0
+      _SelfShadowIntensity: 1
+      _SelfShadowSize: 0.5
+      _SelfShadowatViewDirection: 0
+      _ShadowAddLight: 1
+      _ShadowColorTextureIntensity: 0
+      _ShadowColorTexturePower: 0
+      _ShadowMaskGlossTexture: 1
+      _ShadowPTextureIntensity: 0
+      _ShadowTIntensity: 0
+      _ShadowTLightSize: 0.5
+      _ShadowTShadowSize: 0
+      _Shininess: 0.7
+      _ShowShadowTOnLight: 1
+      _ShowShadowTOnSelfShadow: 0
+      _SmoothnessTextureChannel: 0
+      _SoftGloss: 1
+      _SpecSmooth: 0.85
+      _SpecularHighlights: 1
+      _SrcBlend: 1
+      _SrcBlendOutline: 0
+      _TexLod: 5
+      _TexturePatternStyle: 0
+      _Transparent: 0
+      _UVSec: 0
+      _UseFReflection: 0
+      _UseGILighting: 0
+      _ZSmooth: 0
+      _ZWrite: 1
+    m_Colors:
+      _Color: {r: 0.84011215, g: 0.8699092, b: 0.8773585, a: 1}
+      _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+      _FresnelColor: {r: 0.46377715, g: 0.49801978, b: 0.509434, a: 1}
+      _GlossColor: {r: 1, g: 1, b: 1, a: 1}
+      _HColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+      _MainColor: {r: 1, g: 1, b: 1, a: 1}
+      _OutlineColor: {r: 0.042052317, g: 0.06261123, b: 0.066037714, a: 1}
+      _SColor: {r: 0.16981131, g: 0.16580632, b: 0.16580632, a: 1}
+      _SelfLitColor: {r: 1, g: 1, b: 1, a: 1}
+      _SelfShadowColor: {r: 0, g: 0, b: 0, a: 1}
+      _ShadowOverrideColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+      _SpecColor: {r: 0.14150941, g: 0.14084192, b: 0.14084192, a: 1}

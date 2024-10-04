@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: d3abb3968d9b4e44bba3eb8790110188
+timeCreated: 1727795047
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  externalObjects: {}
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JetBrains Mono
+  fontNames:
+  - JetBrains Mono
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 59df60c78cf44d2419fbcc49fd4361de, type: 3}
+  customCharacters:
+  fontRenderingMode: 0
+  output:
+    hasEmptyFontData: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData:
+  assetBundleName:
+  assetBundleVariant:
