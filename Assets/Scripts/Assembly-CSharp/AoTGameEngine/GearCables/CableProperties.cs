@@ -1,66 +1,107 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace AoTGameEngine.GearCables
 {
 	public class CableProperties : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		// Fields
 
-		1. No dll files were provided to AssetRipper.
+        /// <summary>
+        /// The maximum number of vertices the cable can have. 
+        /// This is used for controlling the detail of the cable's mesh.
+        /// </summary>
+        public const int MAX_VERTICES = 16;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+        /// <summary>
+        /// The prefab used as the anchor point for the cable, where it attaches to surfaces or objects.
+        /// </summary>
+        public GameObject anchorPrefab; // 0x18
 
-		2. Incorrect dll files were provided to AssetRipper.
+        /// <summary>
+        /// The speed at which the cable advances (extends) when deployed.
+        /// </summary>
+        public float advanceSpeed; // 0x20
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+        /// <summary>
+        /// The speed at which the cable retracts when pulled back.
+        /// </summary>
+        public float retractSpeed; // 0x24
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+        /// <summary>
+        /// Indicates whether to use a local pool of vertices for the cable. 
+        /// This can optimize performance by reusing mesh data.
+        /// </summary>
+        public bool useLocalVertexPool; // 0x28
 
-		3. Assembly Reconstruction has not been implemented.
+        /// <summary>
+        /// The width of the cable, defining how thick it appears in the game world.
+        /// </summary>
+        public float cableWidth; // 0x2C
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+        /// <summary>
+        /// The material applied to the cable, which defines its appearance such as color and texture.
+        /// </summary>
+        public Material material; // 0x30
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+        /// <summary>
+        /// Determines whether the cable casts shadows in the scene. 
+        /// Controls how shadows are projected onto other objects.
+        /// </summary>
+        public ShadowCastingMode castShadows; // 0x38
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+        /// <summary>
+        /// Specifies whether the cable should receive shadows from other objects.
+        /// </summary>
+        public bool receiveShadows;
 
-		5. Script Content Level 0
+        /// <summary>
+        /// Defines the collision mode of the cable, such as None, Static, or Dynamic.
+        /// This determines how the cable interacts with physical objects.
+        /// </summary>
+        public CableCollisionMode collisionMode; // 0x40
 
-			AssetRipper was set to not load any script information.
+        /// <summary>
+        /// The collision layer mask that the cable will interact with. 
+        /// Specifies which layers should be considered for collisions.
+        /// </summary>
+        public LayerMask collisionMask; // 0x44
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+        /// <summary>
+        /// The distance the cable juts out from its anchor point, adding a small gap between the cable and anchor.
+        /// </summary>
+        public float jutDistance; // 0x48
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+        /// <summary>
+        /// Determines whether the cable will use soft corners when wrapping around obstacles.
+        /// Reduces sharp bends in the cable's appearance.
+        /// </summary>
+        public bool useSoftCornerWrap; // 0x4C
 
-		7. An incorrect path was provided to AssetRipper.
+        /// <summary>
+        /// The distance the cable shifts when wrapping around corners or obstacles.
+        /// </summary>
+        public float wrapShiftDistance; // 0x50
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+        /// <summary>
+        /// Enables or disables animations for the cable's movement.
+        /// </summary>
+        public bool animationEnabled; // 0x54
 
-		*/
+        /// <summary>
+        /// The number of points used to define the cable's animation curve.
+        /// Higher values create smoother animations but increase computational cost.
+        /// </summary>
+        public int numAnimCurvePoints; // 0x58
+
+        /// <summary>
+        /// The intensity of the cable's advance animation, controlling how dramatic the animation is when extending.
+        /// </summary>
+        public float advanceAnimIntensity; // 0x5C
+
+        /// <summary>
+        /// The intensity of the cable's retract animation, controlling how dramatic the animation is when retracting.
+        /// </summary>
+        public float retractAnimIntensity; // 0x60
 	}
 }

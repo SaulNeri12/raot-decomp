@@ -1,66 +1,56 @@
 using UnityEngine;
 
+// TODO:
+
 namespace AoTGameEngine.GearCables
 {
 	public class HookAnchor : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		// Fields
+		/// <summary>
+		/// The point where the cable is embedded into a surface or object.
+		/// </summary>
+		public Transform embedPoint; // 0x18
 
-		1. No dll files were provided to AssetRipper.
+		/// <summary>
+		/// The point where the cable is attached to another object or anchor.
+		/// </summary>
+		public Transform attachPoint; // 0x20
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		// Properties
+		/// <summary>
+		/// Checks if the cable has an attach point defined (returns true if attachPoint is not null).
+		/// </summary>
+		public bool HasAttachPoint { get => this.attachPoint != null; }
 
-		2. Incorrect dll files were provided to AssetRipper.
+		/// <summary>
+		/// Checks if the cable has an embed point defined (returns true if embedPoint is not null).
+		/// </summary>
+		public bool HasEmbedPoint { get => this.embedPoint != null; }
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		/// <summary>
+		/// The current position of the cable in world space.
+		/// </summary>
+		public Vector3 Position { get; set; }
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		/// <summary>
+		/// The position of the attachment point in world space.
+		/// This property is read-only.
+		/// </summary>
+		public Vector3 AttachPosition { get; }
 
-		3. Assembly Reconstruction has not been implemented.
+		/// <summary>
+		/// Indicates whether the cable is active or not.
+		/// </summary>
+		public bool Active { get; set; }
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		/// <summary>
+		/// The offset position of the cable relative to the embed point.
+		/// This property is read-only.
+		/// </summary>
+		private Vector3 EmbedOffset { get; }
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
-
-		5. Script Content Level 0
-
-			AssetRipper was set to not load any script information.
-
-		6. Cpp2IL failed to decompile Il2Cpp data
-
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-		7. An incorrect path was provided to AssetRipper.
-
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
-
-		*/
+		//public void .ctor() { }
 	}
 }

@@ -2,11 +2,11 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1237230307652322
 GameObject:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4783977686432181}
   - component: {fileID: 114137510246307538}
@@ -42,8 +42,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b425b7a4977259a75e43ea4f59af1a8, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorPrefab: {fileID: 1070730582021412, guid: c556f2f7b5f982145a8f852ed0452466,
+    type: 3}
+  advanceSpeed: 0
+  retractSpeed: 0
+  useLocalVertexPool: 0
+  cableWidth: 0
+  material: {fileID: 0}
+  castShadows: 0
+  receiveShadows: 0
+  collisionMode: 0
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  jutDistance: 0
+  useSoftCornerWrap: 0
+  wrapShiftDistance: 0
+  animationEnabled: 0
+  numAnimCurvePoints: 0
+  advanceAnimIntensity: 0
+  retractAnimIntensity: 0
 --- !u!120 &120952153366487416
 LineRenderer:
   m_ObjectHideFlags: 0

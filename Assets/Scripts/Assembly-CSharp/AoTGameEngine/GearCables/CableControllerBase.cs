@@ -1,66 +1,93 @@
 using UnityEngine;
 
+
 namespace AoTGameEngine.GearCables
 {
-	public class CableControllerBase : MonoBehaviour
-	{
-		/*
-		Dummy class. This could have happened for several reasons:
 
-		1. No dll files were provided to AssetRipper.
-
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
-
-		2. Incorrect dll files were provided to AssetRipper.
-
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
-
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
-
-		3. Assembly Reconstruction has not been implemented.
-
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
-
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
+	using AoTGameEngine.GearCables.Cables;
 	
-		4. This script is unnecessary.
+    //[RequireComponent]
+    public class CableControllerBase : MonoBehaviour
+    {
+        /// <summary>
+        /// Delegate for handling cable phase change events.
+        /// </summary>
+        public delegate void CablePhaseChangeEvent();
+        
+        /// <summary>
+        /// Delegate for handling cable retraction events.
+        /// </summary>
+        public delegate void CableRetractionEvent(); // Definition of the delegate
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+        // Fields
+        /// <summary>
+        /// Reference to the cable object.
+        /// </summary>
+        protected CableBase cable;
 
-		5. Script Content Level 0
+        /// <summary>
+        /// Reference to the anchor point of the hook.
+        /// </summary>
+        protected HookAnchor anchor;
 
-			AssetRipper was set to not load any script information.
+        /// <summary>
+        /// Transform of the target to which the cable is connected.
+        /// </summary>
+        protected Transform cableTarget;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+        /// <summary>
+        /// Current phase of the cable (e.g., advancing, retracting).
+        /// </summary>
+        private CablePhase phase;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+        /// <summary>
+        /// Threshold for length change detection.
+        /// </summary>
+        private const float DELTA_LENGTH_THRESHOLD = 0.1f;
 
-		7. An incorrect path was provided to AssetRipper.
+        /// <summary>
+        /// Buffer time for reeling actions.
+        /// </summary>
+        private const float REEL_TIME_BUFFER = 0.1f;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+        /// <summary>
+        /// Length of the cable in the last frame.
+        /// </summary>
+        private float lengthLastFrame;
 
-		*/
-	}
+        /// <summary>
+        /// Change in cable length since the last frame.
+        /// </summary>
+        private float deltaLength;
+
+        /// <summary>
+        /// Time when the cable was last reeled in.
+        /// </summary>
+        private float lastReelInTime;
+
+        /// <summary>
+        /// Time when the cable was last reeled out.
+        /// </summary>
+        private float lastReelOutTime;
+
+        /// <summary>
+        /// Event triggered when the cable phase changes.
+        /// </summary>
+        private event CablePhaseChangeEvent OnCablePhaseChanged;
+
+        /// <summary>
+        /// Event triggered when the cable is retracted past a specific point.
+        /// </summary>
+        private event CableRetractionEvent OnCableRetractedPastInteriorPoint; // Usage is correct.
+
+        /// <summary>
+        /// Time when the current action started.
+        /// </summary>
+        private float actionStartTime;
+
+        /// <summary>
+        /// Maximum duration for an action.
+        /// </summary>
+        private const float MAX_ACTION_DURATION = 2f;
+    }
 }
